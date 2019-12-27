@@ -4,6 +4,9 @@
 - name: configuration
   include: configuration.yml
 
+- name: vagrant
+  include: vagrant.yml
+
 - name: python
   include: python.yml
 

@@ -1,0 +1,2 @@
+- name: Install VirtualBox for Vagrant
+  shell: vagrant plugin install virtualbox
