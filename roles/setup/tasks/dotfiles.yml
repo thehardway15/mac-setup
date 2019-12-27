@@ -1,0 +1,61 @@
+- name: install Powerlevel10k
+  git:
+    repo: https://github.com/romkatv/powerlevel10k.git
+    depth: 1
+    dest: ~/.vendor/powerlevel10k
+
+- name: add aliases for zsh
+  copy:
+    src: ~/Projects/Private/dotfiles/aliases
+    dest: "{{general.local_home}}/.aliases"
+
+- name: add zsh config
+  copy:
+    src: ~/Projects/Private/dotfiles/zshrc
+    dest: "{{general.local_home}}/.zshrc"
+
+- name: add p10k config
+  copy:
+    src: ~/Projects/Private/dotfiles/p10k.zsh
+    dest: "{{general.local_home}}/.p10k.zsh"
+
+- name: install fzf for zsh
+  homebrew:
+    name: Fzf
+    state: latest
+
+- name: install key bind and autocomplete fzf fot zsh
+  shell: "$(brew --prefix)/opt/fzf/install --all --no-fish --no-bash"
+
+- name: install git template
+  git:
+    repo: https://github.com/greg0ire/git_template
+    dest: "{{general.local_home}}/.git_template"
+
+- name: add global git ignore
+  copy:
+    src: ~/Projects/Private/dotfiles/gitignore_global
+    dest: "{{general.local_home}}/.gitignore_global"
+
+- name: add git config
+  copy:
+    src: ~/Projects/Private/dotfiles/gitconfig
+    dest: "{{general.local_home}}/.gitconfig"
+
+- name: add ctags config
+  copy:
+    src: ~/Projects/Private/dotfiles/ctags
+    dest: "{{general.local_home}}/.ctags"
+
+- name: install saws
+  shell: "{{general.local_home}}/.pyenv/shims/pip install saws"
+
+- name: add tmux config
+  copy:
+    src: ~/Projects/Private/dotfiles/tmux.conf
+    dest: "{{general.local_home}}/.tmux.conf"
+
+- name: add vim config
+  copy:
+    src: ~/Projects/Private/dotfiles/vimrc
+    dest: "{{general.local_home}}/.vimrc"

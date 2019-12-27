@@ -1,0 +1,33 @@
+---
+# list of applications to install
+general:
+  local_home: "{{ lookup('env', 'HOME') }}"
+
+# homebrew application
+applications:
+  - git
+  - tree
+  - httpie
+  - curl
+  - vim
+  - ctags
+  - tmux
+  - pyenv
+  - pyenv-virtualenv
+  - nodenv
+  - reattach-to-user-namespace
+  - bat
+  - ag
+
+# homebrew cask application
+cask_applications:
+  - google-chrome
+  - slack
+  - vagrant
+  - virtualbox
+  - spotify
+  - visual-studio-code
+  - docker
+  - font-meslo-nerd-font
+  - tunnelblick
+

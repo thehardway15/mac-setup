@@ -1,0 +1,14 @@
+- name: application installs
+  include: apps.yml
+
+- name: configuration
+  include: configuration.yml
+
+- name: python
+  include: python.yml
+
+- name: javascript
+  include: javascript.yml
+
+- name: dotfiles
+  include: dotfiles.yml

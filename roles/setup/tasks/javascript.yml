@@ -1,0 +1,19 @@
+- name: Install nodejs 12.13.1
+  shell: /usr/local/bin/nodenv install 12.13.1
+  args:
+    creates: "{{general.local_home}}/.nodenv/versions/12.13.1"
+
+- name: Set 12.13.1 as global
+  shell: /usr/local/bin/nodenv global 12.13.1
+
+- name: Install yarn
+  shell: eval "$(/usr/local/bin/nodenv init -)" && {{general.local_home}}/.nodenv/versions/12.13.1/bin/npm install -g yarn
+  args:
+    creates: "{{general.local_home}}/.nodenv/versions/12.13.1/bin/yarn"
+
+- name: Install TypeScript
+  shell: eval "$(/usr/local/bin/nodenv init -)" && {{general.local_home}}/.nodenv/versions/12.13.1/bin/npm install -g typescript tslint
+  args:
+    creates: "{{general.local_home}}/.nodenv/versions/12.13.1/bin/tsc"
+
+

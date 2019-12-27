@@ -1,0 +1,27 @@
+---
+# doing configuration
+
+- name: create work directories
+  file:
+    path: "{{general.local_home}}{{item}}"
+    state: directory
+  with_items:
+    - /Projects
+    - /Projects/Private
+    - /Projects/Work
+    - /Projects/Social
+    - /.vendor
+
+- name: Set SSH directory correct perm
+  shell: "chmod 700 {{general.local_home}}/.ssh"
+
+- name: Set SSH key correct perm
+  shell: "find {{general.local_home}}/.ssh -type f -exec chmod 0600 {} \\;"
+
+- name: Set AWS directory correct perm
+  shell: "chmod 700 {{general.local_home}}/.aws"
+  
+- name: Set AWS cred correct perm
+  shell: "find {{general.local_home}}/.aws -type f -exec chmod 0600 {} \\;"
+ 
+  

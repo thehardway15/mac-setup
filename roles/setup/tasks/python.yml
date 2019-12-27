@@ -1,0 +1,19 @@
+- name: Install latest py3.8
+  shell: "/usr/local/bin/pyenv install 3.8.0"
+  args:
+    creates: "{{general.local_home}}/.pyenv/versions/3.8.0"
+
+- name: Install latest py2.7
+  shell: "/usr/local/bin/pyenv install 2.7.17"
+  args:
+    creates: "{{general.local_home}}/.pyenv/versions/2.7.17"
+
+- name: Set py3.8 as global
+  shell: /usr/local/bin/pyenv global 3.8.0
+
+- name: Upgrade pip
+  shell: "{{general.local_home}}/.pyenv/shims/pip install --upgrade pip"
+
+- name: Install python lib
+  shell: "{{general.local_home}}/.pyenv/shims/pip install pylint black 'python-language-server[all]'"
+  become: yes
