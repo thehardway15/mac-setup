@@ -18,6 +18,7 @@ applications:
   - reattach-to-user-namespace
   - bat
   - ag
+  - zsh-completions
 
 # homebrew cask application
 cask_applications:
