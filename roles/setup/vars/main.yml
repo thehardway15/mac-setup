@@ -31,4 +31,4 @@ cask_applications:
   - docker
   - font-meslo-nerd-font
   - tunnelblick
-
+  - skype
